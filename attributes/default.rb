@@ -1,0 +1,12 @@
+default['graphite']['whisper_path'] = '/var/lib/graphite/whisper/'
+default['graphite']['memcached'] = false #memcached does not work
+default['graphite']['memcached_server_port'] = '192.168.37.26'
+default['graphite']['redis'] = true
+default['graphite']['redis_server'] = '192.168.37.29'
+default['graphite']['redis_password'] = 'password'
+default['carbon']['query_relay'] = true
+default['carbon']['hosts_port'] = '127.0.0.1:7002'
+default['carbon']['timeout'] = '1'
+default['carbon']['retry_delay'] = '15'
+default['carbon']['carbon_prefix'] = 'carbon'
+default['carbon']['replication_factor'] = '1'

@@ -1,0 +1,4 @@
+WHISPER_DIR='<%= node['graphite']['whisper_path'] %>'
+
+/usr/bin/find $WHISPER_DIR -type f -mtime +120 -name \*.wsp -delete
+/usr/bin/find $WHISPER_DIR -depth -type d -empty -delete

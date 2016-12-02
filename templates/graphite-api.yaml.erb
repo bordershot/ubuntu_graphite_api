@@ -1,0 +1,25 @@
+search_index: /var/lib/graphite-api/index
+whisper:
+  directories:
+    - <%= node['graphite']['whisper_path'] %>
+
+<% if node['graphite']['memcached'] %>
+cache:
+  type: memcached
+  memcached_servers: <%= node['graphite']['memcached_server_port'] %>
+<% elsif node['graphite']['redis'] %>
+cache:
+  type: redis
+  redis_host: <%= node['graphite']['redis_server'] %>
+  redis_password: <%= node['graphite']['redis_password'] %>
+<% end %>
+
+<% if node['carbon']['query_relay'] %>
+carbon:
+  hosts:
+    - <%= node['carbon']['hosts_port'] %>
+  timeout: <%= node['carbon']['timeout'] %>
+  retry_delay: <%= node['carbon']['retry_delay'] %>
+  carbon_prefix: <%= node['carbon']['carbon_prefix'] %>
+  replication_factor: <%= node['carbon']['replication_factor'] %>
+<% end %>
